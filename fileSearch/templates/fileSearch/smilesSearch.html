@@ -1,0 +1,12 @@
+  {% extends 'fileSearch/base.html' %}
+
+    {% block content %}
+        </br>
+        </br>
+        </br>
+        <h1>Smiles Search</h1>
+        <form method="POST">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Search</button>
+        </form>
+    {% endblock %}
