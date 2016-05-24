@@ -1,4 +1,4 @@
-    {% load staticfiles %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -10,22 +10,26 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>CasFinder</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+    <!--<link href="starter-template.css" rel="stylesheet">-->
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!--<script src="{{ STATIC_URL }}js/dutils.js"></script>-->
+    <!--<script src="{{ STATIC_URL }}js/django-urls.js"></script>-->
+    
+    <link rel = 'stylesheet' href='{% static "css/base.css"%}' />
   </head>
 
   <body>
@@ -43,9 +47,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">SmilesSearch</a></li>
-            <li><a href="#about">ImageSearch</a></li>
-            <li><a href="#contact">FileSearch</a></li>
+            <li><a href="{% url 'smiles_search' %}">SmilesSearch</a></li>
+            <li><a href="{% url 'image_search' %}">ImageSearch</a></li>
+            <li><a href="{% url 'ketcher' %}">Structure</a></li>
+            <li><a href="{% url 'file_search' %}">FileSearch</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -73,6 +78,6 @@
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
   </body>
 </html>

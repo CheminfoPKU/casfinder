@@ -19,3 +19,12 @@ def result(request, pk):
     compound = get_object_or_404(smiles, pk=pk)
     cas = smiles2cas(compound.input)  
     return render(request, 'fileSearch/result.html',{'cas':cas})
+    
+def ketcher(request):
+    return render(request, 'fileSearch/ketcher.html')
+    
+def imageSearch(request):
+    return render(request, 'fileSearch/imageSearch.html')
+    
+def fileSearch(request):
+    return render(request, 'fileSearch/fileSearch.html')

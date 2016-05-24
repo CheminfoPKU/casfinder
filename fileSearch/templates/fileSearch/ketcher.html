@@ -1,0 +1,12 @@
+  {% extends 'fileSearch/base.html' %}
+  {% load staticfiles %}
+
+    {% block content %}
+        <div>
+        <h1> Structure Search</h1>
+        </div>
+        
+        <div>
+            <iframe id="ifKetcher" src='{% static "js/ketcher/ketcher.html"%}' width="900" height="505"></iframe>
+              
+    {% endblock %}
