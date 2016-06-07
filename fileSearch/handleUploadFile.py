@@ -5,8 +5,7 @@ def handleUploadFile(f):
     with open('static/media/molecule.txt', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-    stringWithMolData = destination.read()
-    mol = Chem.MolFromMolBlock(stringWithMolData)
+    mol = Chem.MolFromMolBlock(destination)
     smiles = Chem.MolToSmiles(mol)
     return smiles
     # else:
