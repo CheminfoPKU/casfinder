@@ -16,6 +16,7 @@ class uploadFileForm(forms.Form):
     )
     file = forms.FileField()
     upload_file_type = forms.ChoiceField(label = 'File Type:', choices = UPLOAD_FILE_TYPE) 
+    name = forms.CharField(max_length=50)
     
 class uploadImageForm(forms.Form):    
     file = forms.FileField()
