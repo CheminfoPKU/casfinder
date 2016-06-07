@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect,HttpResponse
-from .forms import smilesForm,uploadFileForm
+from .forms import smilesForm,uploadFileForm,uploadImageForm
 from django.shortcuts import redirect
 from .smilesSearch import smiles2cas
 from .handleUploadFile import handleUploadFile
@@ -28,13 +28,24 @@ def ketcher(request):
         return render(request,'fileSearch/ketcher.html')   
     
 def imageSearch(request):
-    return render(request, 'fileSearch/ketcher.html') 
+    if request.method == 'POST':
+        form = uploadImageForm(request.FILES)
+        if form.is_valid():
+            image = handleUploadFile(request.FILES['file'])
+            # smiles = image2smiles(image)
+            # cas = smiles2cas(smiles)
+            cas = 'test'
+            return render(request,'fileSearch/result.html',{'cas':cas})
+    else:
+        form = uploadImageForm()
+    return render(request, 'fileSearch/imageSearch.html', {'form': form})
+    # return render(request, 'fileSearch/ketcher.html') 
     
 def fileSearch(request):
     if request.method == 'POST':
         form = uploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            cas = handleUploadFile(request.FILES['file'])
+            smiles = handleUploadFile(request.FILES['file'])
             # cas = smiles2cas(smiles)
             return render(request,'fileSearch/result.html',{'cas':cas})
     else:
