@@ -10,7 +10,7 @@ from django.db import models
 #     def __str__(self):
 #         return self.input
         
-# class uploadFile(models.Model):
+class uploadImage(models.Model):
 #     MOL = 'MOL'
 #     CDX = 'CDX'
 #     SDF = 'SDF'
@@ -20,6 +20,6 @@ from django.db import models
 #         (SDF,'SDF')
 #     )
 #     uoload_file_type = models.CharField(max_length = 10, choices = UPLOAD_FILE_TYPE, default = CDX)
-#     upload_file = models.FileField(upload_to = 'uploads')
+    upload_file = models.FileField(upload_to = 'uploads')
     
    

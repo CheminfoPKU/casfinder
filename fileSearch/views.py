@@ -4,6 +4,7 @@ from .forms import smilesForm,uploadFileForm,uploadImageForm
 from django.shortcuts import redirect
 from .smilesSearch import smiles2cas
 from .handleUploadFile import handleUploadFile
+from .handleUploadImage import handleUploadImage
 from .models import *
 import json
 # Create your views here.
@@ -29,16 +30,18 @@ def ketcher(request):
     
 def imageSearch(request):
     if request.method == 'POST':
-        # form = uploadImageForm(request.FILES)       
-        image = handleUploadFile(request.FILES('file'))
-            # smiles = image2smiles(image)
+        form = uploadImageForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()           
             # cas = smiles2cas(smiles)
-        cas = 'test'
-        return render(request,'fileSearch/result.html',{'cas':cas})
+            for filename, file in request.FILES.iteritems():
+                fileName = request.FILES[filename].name
+            smiles = handleUploadImage(fileName)
+            cas = smiles
+            return render(request,'fileSearch/result.html',{'cas':cas})
     else:
         form = uploadImageForm()
     return render(request, 'fileSearch/imageSearch.html', {'form': form})
-    # return render(request, 'fileSearch/ketcher.html') 
     
 def fileSearch(request):
     if request.method == 'POST':

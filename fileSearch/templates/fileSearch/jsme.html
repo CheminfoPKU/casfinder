@@ -1,0 +1,27 @@
+  {% extends 'fileSearch/base.html' %}
+  {% load staticfiles %}
+
+    {% block content %}        
+        <script>
+        $(document).ready(function(){
+            var pos = null;
+            $("#upload").click(function(){
+            smiles = jsmeApplet.smiles();
+            document.getElementById('smiles').value = smiles;
+            // $.post("/ketcher", {pos : pos})            
+            });
+        });
+        </script>
+        <div>
+        <h1> Structure Search</h1>
+        </div>
+        
+        <div id="jsme_container"></div>
+        <br>
+        <form id = "geolocation" action="/ketcher" method="POST" >
+            {% csrf_token %}
+        <input hidden type="text" id = "smiles" name="smiles" value="" />
+        <input type="submit" id = "upload"/>
+        </form>
+            
+    {% endblock %}

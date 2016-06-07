@@ -1,4 +1,4 @@
 from django.contrib import admin
 
-# admin.site.register(smiles)
+# admin.site.register(uploadImage)
 
