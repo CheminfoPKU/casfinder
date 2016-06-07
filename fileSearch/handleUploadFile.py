@@ -5,7 +5,7 @@ def handleUploadFile(f):
     with open('static/media/molecule.txt','w') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-        //rdkit   
+        # rdkit   
         stringWithMolData=destination.readlines()
         mol = Chem.MolFromMolBlock(stringWithMolData)
         smiles = Chem.MolToSmiles(mol)
