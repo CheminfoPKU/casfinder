@@ -30,6 +30,15 @@
     <!--<script src="{{ STATIC_URL }}js/django-urls.js"></script>-->
     
     <link rel = 'stylesheet' href='{% static "css/base.css"%}' />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <!--JSME-->
+    <script type="text/javascript" language="javascript" src='{% static "js/jsme/jsme.nocache.js"%}'></script>
+    <script>
+    //this function will be called after the JavaScriptApplet code has been loaded.
+        function jsmeOnLoad() {
+            jsmeApplet = new JSApplet.JSME("jsme_container", "500px", "450px");
+      }
+    </script>
   </head>
 
   <body>
@@ -43,7 +52,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">CasFinder</a>
+          <a class="navbar-brand" >CasFinder</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">

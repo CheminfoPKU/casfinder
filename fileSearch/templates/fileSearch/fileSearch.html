@@ -2,7 +2,11 @@
 
     {% block content %}
         <div>
-        <h1>Coming soon... </h1>
+        <h1>Upload Your File</h1>
+        <form method="POST">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Search</button>
+        </form>
         </div>
         
         
