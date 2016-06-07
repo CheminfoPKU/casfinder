@@ -30,7 +30,7 @@ def ketcher(request):
 def imageSearch(request):
     if request.method == 'POST':
         # form = uploadImageForm(request.FILES)       
-        image = handleUploadFile(request.FILES['file'])
+        image = handleUploadFile(request.FILES('file'))
             # smiles = image2smiles(image)
             # cas = smiles2cas(smiles)
         cas = 'test'
