@@ -7,8 +7,8 @@ def handleUploadFile(f):
             destination.write(chunk)
         # rdkit   
         stringWithMolData=destination.read()
-        mol = Chem.MolFromMolBlock(stringWithMolData)
-        smiles = Chem.MolToSmiles(mol)
+        m = Chem.MolFromMolBlock(stringWithMolData)
+        smiles = Chem.MolToSmiles(m)
     
     return smiles
     # else:
