@@ -29,13 +29,12 @@ def ketcher(request):
     
 def imageSearch(request):
     if request.method == 'POST':
-        form = uploadImageForm(request.FILES)
-        if form.is_valid():
-            image = handleUploadFile(request.FILES['file'])
+        # form = uploadImageForm(request.FILES)       
+        image = handleUploadFile(request.FILES['file'])
             # smiles = image2smiles(image)
             # cas = smiles2cas(smiles)
-            cas = 'test'
-            return render(request,'fileSearch/result.html',{'cas':cas})
+        cas = 'test'
+        return render(request,'fileSearch/result.html',{'cas':cas})
     else:
         form = uploadImageForm()
     return render(request, 'fileSearch/imageSearch.html', {'form': form})
