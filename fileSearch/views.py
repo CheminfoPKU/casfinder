@@ -43,10 +43,10 @@ def imageSearch(request):
     
 def fileSearch(request):
     if request.method == 'POST':
-        form = uploadFileForm(request.POST, request.FILES)
+        form = uploadFileForm(request.FILES)
         if form.is_valid():
             smiles = handleUploadFile(request.FILES['file'])
-            # cas = smiles2cas(smiles)
+            cas = smiles2cas(smiles)
             return render(request,'fileSearch/result.html',{'cas':cas})
     else:
         form = uploadFileForm()
