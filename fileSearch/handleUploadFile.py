@@ -5,10 +5,10 @@ def handleUploadFile(f):
     with open('static/media/molecule.txt','w') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-            
-    stringWithMolData=destination.readlines()
-    mol = Chem.MolFromMolBlock(stringWithMolData)
-    smiles = Chem.MolToSmiles(mol)
+        //rdkit   
+        stringWithMolData=destination.readlines()
+        mol = Chem.MolFromMolBlock(stringWithMolData)
+        smiles = Chem.MolToSmiles(mol)
     
     return smiles
     # else:
