@@ -6,7 +6,7 @@ def handleUploadFile(f):
         for chunk in f.chunks():
             destination.write(chunk)
         # rdkit   
-        stringWithMolData=destination.readlines()
+        stringWithMolData=destination.read()
         mol = Chem.MolFromMolBlock(stringWithMolData)
         smiles = Chem.MolToSmiles(mol)
     
